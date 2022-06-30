@@ -317,11 +317,19 @@ workflows:
       - build-backend
       - test-frontend:
           requires: [build-frontend]
+          context:
+            - project3
       - test-backend:
+          context:
+            - project3
           requires: [build-backend]
       - scan-backend:
+          context:
+            - project3
           requires: [build-backend]
       - scan-frontend:
+          context:
+            - project3      
           requires: [build-frontend]
       #- deploy-infrastructure:
       #    requires: [test-frontend, test-backend, scan-frontend, scan-backend]
