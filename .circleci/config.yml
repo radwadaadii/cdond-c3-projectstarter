@@ -197,7 +197,7 @@ jobs:
           at: ~/
       - run:
           name: print invetory output
-          command: "cat project/.circleci/ansible/inventory.txt"      
+          command: "cat .circleci/ansible/inventory.txt"      
       - run:
           name: Install dependencies
           command: |
