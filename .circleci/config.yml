@@ -188,16 +188,16 @@ jobs:
 
   configure-infrastructure:
     docker:
-        - image: python:3.7-alpine3.11
-      steps:
-        - checkout
-        - add_ssh_keys:
-                fingerprints: ["e4:b3:42:fd:84:3d:56:c0:54:8f:e8:70:36:dd:68:12"] 
-        - attach_workspace:
-            at: ~/
-        - run:
-            name: print invetory output
-            command: "cat project/.cicleci/ansible/inventory.txt"      
+      - image: python:3.7-alpine3.11
+    steps:
+      - checkout
+      - add_ssh_keys:
+              fingerprints: ["e4:b3:42:fd:84:3d:56:c0:54:8f:e8:70:36:dd:68:12"] 
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: print invetory output
+          command: "cat project/.cicleci/ansible/inventory.txt"      
       - run:
           name: Install dependencies
           command: |
