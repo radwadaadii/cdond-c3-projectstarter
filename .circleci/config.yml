@@ -232,6 +232,7 @@ jobs:
       - run:
           name: Send migration results to kvdb
           command: |
+            cat migrations_dump.txt
             if grep -q "has been executed successfully." migrations_dump.txt
             then
           # If you are using kvdb.io, generate the bucket id:  curl -d 'email=radwa.hamed.mohamed@gmail.com' https://kvdb.io
