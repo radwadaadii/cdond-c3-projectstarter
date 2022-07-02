@@ -1,0 +1,31 @@
+---
+- name: "update apt packages."
+  become: yes
+  apt:
+    update_cache: yes
+
+- name: "upgrade packages"
+  become: yes
+  apt:
+    upgrade: yes
+
+- name: "create backend directory"
+  file: 
+    path: ~/backend
+    state: directory
+
+- name: "extract zipped file"
+  unarchive: 
+    src: artifact.tar.gz   # file in .circleci/ansible/roles/deploy/files/
+    dest: ~/backend
+
+- name: "install dependencies"
+  command: npm install
+  args: 
+    chdir: ~/backend
+
+- name: "start app"
+  command: pm2 start main.js
+  args:
+    chdir: ~/backend/dist
+
