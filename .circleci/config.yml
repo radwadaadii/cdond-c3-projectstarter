@@ -250,10 +250,10 @@ jobs:
           name: Install dependencies
           command: |
             yum update -y
+            yum install -y tar jzip
             yum install -y python3
             pip3 install ansible
             pip3 install awscli
-            yum install -y tar jzip
             curl -sL https"//rpm.nodesource.com/setup-10.x | bash -
             yum install -y nodejs
 
@@ -306,6 +306,7 @@ jobs:
             cd ..
             tar -C backend -czvf artifact.tar.gz .
             cp ./artifact.tar.gz .circleci/ansible/roles/deploy/files
+            ls .circleci/ansible/roles/deploy/files
             cd .circleci/ansible
             echo "Contents  of the inventory.txt file is -------"
             cat inventory.txt

@@ -16,7 +16,7 @@
 
 - name: "extract zipped file"
   unarchive: 
-    src: artifact.tar.gz   # file in .circleci/ansible/roles/deploy/files/
+    src: artifact.tar.gz 
     dest: ~/backend
 
 - name: "install dependencies"
