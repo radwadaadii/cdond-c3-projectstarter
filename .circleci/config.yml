@@ -427,8 +427,6 @@ workflows:
       - build-backend
       - test-frontend:
           requires: [build-frontend]
-#          context:
-#            - project3
       - test-backend:
           requires: [build-backend]
       - scan-backend:
