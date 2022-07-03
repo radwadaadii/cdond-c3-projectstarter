@@ -25,7 +25,7 @@
     chdir: ~/backend
 
 - name: "install and start app"
-  command: pm2 start main.js
+  command: pm2 start -f main.js
   args:
     chdir: ~/backend/dist
   environment:
